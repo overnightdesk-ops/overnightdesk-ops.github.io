@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jetson Orin Nano vs Raspberry Pi 5 for Local AI: An Honest Comparison | Overnight Desk</title>
+<meta name="description" content="Memory bandwidth, throughput, price and ecosystem: whether a Jetson Orin Nano or a Raspberry Pi 5 fits your local AI project better.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:820px;margin:0 auto;padding:2rem 1rem;color:#1a1a1a;line-height:1.65}
+h1{font-size:1.7rem} h2{margin-top:2rem;font-size:1.25rem}
+a{color:#0b5fff} table{border-collapse:collapse} td,th{border:1px solid #ddd;padding:.4rem .7rem}
+</style>
+</head>
+<body>
+<p><a href="index.html">← All guides</a></p>
+<h1>Jetson Orin Nano vs Raspberry Pi 5 for Local AI: An Honest Comparison</h1>
+<p>These are the two boards people actually shortlist for local AI at the edge. They are not close competitors - they solve different problems. Here is the decision in one page.</p>
+
+<h2>The number that decides it: memory bandwidth</h2>
+<p>LLM inference at this scale is almost entirely memory-bandwidth-bound. The Orin Nano moves about 102 GB/s; the Pi 5 manages roughly 17 GB/s. For generation speed on the same quantized model, that gap matters more than every other spec on the sheet combined. Expect the Orin Nano to produce tokens several times faster on 3B-8B models, and to run 7B-8B Q4 models that simply do not fit comfortably on a Pi.</p>
+
+<h2>Where the Pi 5 wins</h2>
+<ul>
+<li><strong>Price.</strong> A Pi 5 8 GB build lands well under half the cost of an Orin Nano dev kit.</li>
+<li><strong>Ecosystem.</strong> HATs, cases, community answers for everything.</li>
+<li><strong>Small models.</strong> For 1-3B parameter models - classifiers, summarizers, home-automation brains - the Pi 5 is genuinely enough, and llama.cpp runs beautifully on it.</li>
+</ul>
+
+<h2>Where the Orin Nano wins</h2>
+<ul>
+<li><strong>Model ceiling.</strong> 7B-8B Q4 models run properly, with CUDA/TensorRT behind them.</li>
+<li><strong>Throughput.</strong> Several times the tokens/sec on the models both boards can run.</li>
+<li><strong>Vision + LLM pipelines.</strong> If your project mixes camera inference with a language model, it is not a contest.</li>
+</ul>
+
+<h2>The short version</h2>
+<p>Chatbots on small models, home automation, learning: Pi 5. Serious local assistants, 7B+ models, vision pipelines: Orin Nano. Buying the wrong one costs you either $150 of overspend or a board that cannot run your model.</p>
+
+<h2>Before you commit</h2>
+<p>Our <a href="https://overnightdesk.myshoppex.io/product/edge-ai-readiness-kit-for-raspberry-pi-jetson-linux-sbcs">Edge AI Readiness Kit</a> (€7.83) covers setup paths for both boards plus the other common SBCs, and the <a href="https://overnightdesk.myshoppex.io/product/local-ai-model-compatibility-audit">Model Compatibility Audit</a> (€4) checks which models your specific board and RAM will actually run before you download anything.</p>
+
+<footer>Overnight Desk - <a href="https://overnightdesk.myshoppex.io/">tools for local AI on small hardware</a></footer>
+</body>
+</html>
