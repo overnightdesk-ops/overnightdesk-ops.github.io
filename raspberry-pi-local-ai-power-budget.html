@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Power Budgeting Local AI on a Raspberry Pi 5: Real Numbers | Overnight Desk</title>
+<meta name="description" content="What a Raspberry Pi 5 running local LLMs actually draws, how to spec the PSU and cooling, and what 24/7 inference costs on your power bill.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:820px;margin:0 auto;padding:2rem 1rem;color:#1a1a1a;line-height:1.65}
+h1{font-size:1.7rem} h2{margin-top:2rem;font-size:1.25rem}
+a{color:#0b5fff}
+</style>
+</head>
+<body>
+<p><a href="index.html">← All guides</a></p>
+<h1>Power Budgeting Local AI on a Raspberry Pi 5: Real Numbers</h1>
+<p>Power is the part of a local AI build people skip - right up until the board brown-outs mid-inference or the electricity bill lands. Here is the math we use.</p>
+
+<h2>What the board actually draws</h2>
+<p>A Pi 5 idles around 2.7-3.5 W with a minimal OS. Sustained LLM inference on all four cores pushes it to roughly 7-9 W, more with an NVMe hat or USB SSD. Add an active cooler (0.5-1 W) and any AI accelerator hat and budget headroom on top. The official 27 W (5V/5A) USB-C PSU exists for a reason: undervoltage during a long generation run shows up as silent errors and throttled clocks before it shows up as a reboot.</p>
+
+<h2>The monthly cost reality</h2>
+<p>At a sustained 8 W average, 24/7 operation is about 5.8 kWh per month. At typical US or EU residential rates that is roughly $1-2 per month - cheap, but not zero, and it triples if you add a second board or an accelerator. The number that matters more is cost per query: divide your monthly power + hardware amortization by your monthly query count. For most hobby setups the honest answer is that local beats cloud only above a certain usage level - knowing yours is the whole game.</p>
+
+<h2>Spec it before you buy it</h2>
+<p>We built two tools for exactly this. The <a href="https://overnightdesk.myshoppex.io/product/local-ai-power-budget-planner">Local AI Power Budget Planner</a> (€4) walks PSU sizing, cooling draw, and runtime budgets in one sheet. The <a href="https://overnightdesk.myshoppex.io/product/local-ai-total-cost-calculator">Total Cost Calculator</a> (€4) does the hardware-plus-power-plus-time math and gives you cost per month and per query against cloud API prices. Both are instant downloads.</p>
+
+<footer>Overnight Desk - <a href="https://overnightdesk.myshoppex.io/">tools for local AI on small hardware</a></footer>
+</body>
+</html>
